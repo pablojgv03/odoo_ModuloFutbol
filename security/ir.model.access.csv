@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_futbol_equipo_usuario,futbol.equipo.usuario,model_futbol_equipo,futbol.group_futbol_usuario,1,0,0,0
+access_futbol_equipo_administrador,futbol.equipo.administrador,model_futbol_equipo,futbol.group_futbol_administrador,1,1,1,1
+access_futbol_jugador_usuario,futbol.jugador.usuario,model_futbol_jugador,futbol.group_futbol_usuario,1,0,0,0
+access_futbol_jugador_administrador,futbol.jugador.administrador,model_futbol_jugador,futbol.group_futbol_administrador,1,1,1,1
+access_futbol_entrenador_usuario,futbol.entrenador.usuario,model_futbol_entrenador,futbol.group_futbol_usuario,1,0,0,0
+access_futbol_entrenador_administrador,futbol.entrenador.administrador,model_futbol_entrenador,futbol.group_futbol_administrador,1,1,1,1
+access_futbol_ciudad_usuario,futbol.ciudad.usuario,model_futbol_ciudad,futbol.group_futbol_usuario,1,0,0,0
+access_futbol_ciudad_administrador,futbol.ciudad.administrador,model_futbol_ciudad,futbol.group_futbol_administrador,1,1,1,1

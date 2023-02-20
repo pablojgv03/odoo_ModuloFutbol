@@ -1,0 +1,31 @@
+<odoo>
+    <record id="futbol.equipo_report" model="ir.actions.report">
+        <field name="name"> Informe de equipos</field>
+        <field name="model">futbol.equipo</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">futbol.equipo_report_view</field>
+        <field name="report_file">futbol.equipo_report</field>
+        <field name="binding_model_id" ref="model_futbol_equipo"/>
+        <field name="binding_type">report</field>
+
+    </record>
+
+    <template id="equipo_report_view">
+        <t t-call="web.html_container">
+            <!-- muestra datos de la empresa (salta página) -->
+            <t t-call="web.external_layout">
+                <h1>Equipos </h1><br />
+                <t t-foreach="docs" t-as="equipo">
+                    <ul>
+                        <li>    nombre <span t-field="equipo.nombre" /></li>
+                        <li>    division <span t-field="equipo.division" /></li>
+                        <li>    ciudad <span t-field="equipo.ciudad_id" /></li>
+                        <li>    entrenador <span t-field="equipo.entrenador_id" /></li>
+                        <li>    jugador <span t-field="equipo.jugador_id" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

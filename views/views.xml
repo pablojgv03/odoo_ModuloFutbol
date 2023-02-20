@@ -1,0 +1,330 @@
+<odoo>
+  <data>
+<!-- Vistas de jugador-->
+
+    <record model="ir.ui.view" id="futbol.jugador_list_view">
+      <field name="name">futbol.jugador.view.tree</field>
+      <field name="model">futbol.jugador</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="numero"/>
+          <field name="equipo_id"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="futbol.jugador_search_view">
+      <field name="name">futbol.jugador.view.search</field>
+      <field name="model">futbol.jugador</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="nombre"/>
+          <field name="numero"/>
+          <group>
+            <filter name="group_by_nombre" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    
+    <!-- form -->
+    
+    <record model="ir.ui.view" id="futbol.jugador_form_view">
+      <field name="name">futbol.jugador.view.form</field>
+      <field name="model">futbol.jugador</field>
+      <field name="arch" type="xml">
+        <form string="Información jugador">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Nombre <field name="nombre" placeholder="Nombre"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="numero" placeholder="Numero"/>
+                <field name="nombre"/>
+                <field name="equipo_id"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
+
+
+
+    <!-- Definición de menús-->
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="futbol.jugador_action_window">
+      <field name="name">Jugadores</field>
+      <field name="res_model">futbol.jugador</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="futbol" id="futbol.menu_root"/>
+    <menuitem name="Jugadores" id="futbol.menu_jugador" parent="futbol.menu_root"/>
+    <menuitem name="List" id="futbol.menu_jugador_list" parent="futbol.menu_jugador"
+              action="futbol.jugador_action_window"/>
+
+
+
+
+
+
+<!-- Vistas de equipo-->
+
+    <record model="ir.ui.view" id="futbol.equipo_list_view">
+      <field name="name">futbol.equipo.view.tree</field>
+      <field name="model">futbol.equipo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="division"/>
+          <field name="jugador_id"/>
+          <field name="ciudad_id"/>
+          <field name="entrenador_id"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="futbol.equipo_search_view">
+      <field name="name">futbol.equipo.view.search</field>
+      <field name="model">futbol.equipo</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="nombre"/>
+          <field name="division"/>
+          <group>
+            <filter name="group_by_nombre" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    
+    <!-- form -->
+    
+    <record model="ir.ui.view" id="futbol.equipo_form_view">
+      <field name="name">futbol.equipo.view.form</field>
+      <field name="model">futbol.equipo</field>
+      <field name="arch" type="xml">
+        <form string="Información equipo">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Nombre <field name="nombre" placeholder="Nombre"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="division" placeholder="Division"/>
+                <field name="nombre"/>
+                <field name="jugador_id"/>
+                <field name="ciudad_id"/>
+                <field name="entrenador_id"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
+
+
+
+    <!-- Definición de menús-->
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="futbol.equipo_action_window">
+      <field name="name">Equipos</field>
+      <field name="res_model">futbol.equipo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="futbol" id="futbol.menu_root"/>
+    <menuitem name="Equipos" id="futbol.menu_equipo" parent="futbol.menu_root"/>
+    <menuitem name="List" id="futbol.menu_equipo_list" parent="futbol.menu_equipo"
+              action="futbol.equipo_action_window"/>
+
+
+
+
+
+
+
+<!-- Vistas de entrenador-->
+
+    <record model="ir.ui.view" id="futbol.entrenador_list_view">
+      <field name="name">futbol.entrenador.view.tree</field>
+      <field name="model">futbol.entrenador</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="equipo_id"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="futbol.entrenador_search_view">
+      <field name="name">futbol.entrenador.view.search</field>
+      <field name="model">futbol.entrenador</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="nombre"/>
+          <group>
+            <filter name="group_by_nombre" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    
+    <!-- form -->
+    
+    <record model="ir.ui.view" id="futbol.entrenador_form_view">
+      <field name="name">futbol.entrenador.view.form</field>
+      <field name="model">futbol.entrenador</field>
+      <field name="arch" type="xml">
+        <form string="Información entrenador">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Nombre <field name="nombre" placeholder="Nombre"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="nombre"/>
+                <field name="equipo_id"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
+
+
+
+    <!-- Definición de menús-->
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="futbol.entrenador_action_window">
+      <field name="name">Entrenadores</field>
+      <field name="res_model">futbol.entrenador</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="futbol" id="futbol.menu_root"/>
+    <menuitem name="Entrenadores" id="futbol.menu_entrenador" parent="futbol.menu_root"/>
+    <menuitem name="List" id="futbol.menu_entrenador_list" parent="futbol.menu_entrenador"
+              action="futbol.entrenador_action_window"/>
+
+
+
+
+
+
+
+
+
+
+<!-- Vistas de ciudad-->
+
+    <record model="ir.ui.view" id="futbol.ciudad_list_view">
+      <field name="name">futbol.ciudad.view.tree</field>
+      <field name="model">futbol.ciudad</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="pais"/>
+          <field name="equipo_id"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="futbol.ciudad_search_view">
+      <field name="name">futbol.ciudad.view.search</field>
+      <field name="model">futbol.ciudad</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="nombre"/>          
+          <field name="pais"/>
+          <group>
+            <filter name="group_by_nombre" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    
+    <!-- form -->
+    
+    <record model="ir.ui.view" id="futbol.ciudad_form_view">
+      <field name="name">futbol.ciudad.view.form</field>
+      <field name="model">futbol.ciudad</field>
+      <field name="arch" type="xml">
+        <form string="Información ciudad">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Nombre <field name="nombre" placeholder="Nombre"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="nombre"/>
+                <field name="pais"/>
+                <field name="equipo_id"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
+
+
+
+    <!-- Definición de menús-->
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="futbol.ciudad_action_window">
+      <field name="name">Ciudades</field>
+      <field name="res_model">futbol.ciudad</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="futbol" id="futbol.menu_root"/>
+    <menuitem name="Ciudades" id="futbol.menu_ciudad" parent="futbol.menu_root"/>
+    <menuitem name="List" id="futbol.menu_ciudad_list" parent="futbol.menu_ciudad"
+              action="futbol.ciudad_action_window"/>
+
+
+  </data>
+</odoo>
